@@ -2,5 +2,5 @@
 # Python specific
 __pycache__/
 *.pyc
-venv_flask/
+venv_flak/
 .vscode/
