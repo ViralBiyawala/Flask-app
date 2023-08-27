@@ -37,10 +37,11 @@ def login():
         user = User.query.filter_by(username=username).first()
 
         if user is None or not user.check_password(password):
-            flash('Invalid username or password')
+            flash('Invalid username or password', 'error')
             return redirect(url_for('login'))
 
         login_user(user)
+        flash('', 'clear')
         return redirect(url_for('index'))
 
     return render_template('login.html')
@@ -66,6 +67,7 @@ def signup():
         db.session.commit()
 
         login_user(new_user)
+        flash('', 'clear')
         return redirect(url_for('index'))
 
     return render_template('signup.html')
@@ -74,4 +76,5 @@ def signup():
 @login_required
 def logout():
     logout_user()
+    flash('Logged out successfully', 'success')
     return redirect(url_for('index'))
