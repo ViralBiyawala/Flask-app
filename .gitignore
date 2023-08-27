@@ -1,6 +1,6 @@
 # .gitignore
 # Python specific
-__pycache__/
+app/__pycache__/
 *.pyc
 venv_flak/
 .vscode/
